@@ -69,7 +69,7 @@ if [ "$USE_GPU" -eq "1" ]; then
 	export TF_NCCL_VERSION=1.3
 
 	# Those two lines are important for the linking step.
-	export LD_LIBRARY_PATH="$CUDA_TOOLKIT_PATH/lib64:${LD_LIBRARY_PATH}"
+	export LD_LIBRARY_PATH=$CUDA_TOOLKIT_PATH/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 	ln -sf ${CUDA_TOOLKIT_PATH}/lib64/stubs/libcuda.so ${CUDA_TOOLKIT_PATH}/lib64/libcuda.so.1
 	ldconfig
 fi
