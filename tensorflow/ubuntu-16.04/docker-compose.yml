@@ -1,14 +1,17 @@
 version: '3'
 services:
   tf:
+    container_name: tf
+    image: tf
+    network_mode: "bridge"
     build: .
     stdin_open: true
     tty: true
     volumes:
       - ../../wheels:/wheels
     environment:
-      - TF_VERSION_GIT_TAG=${TF_VERSION_GIT_TAG-v1.8.0}
-      - PYTHON_VERSION=${PYTHON_VERSION-3.6}
-      - USE_GPU=${USE_GPU-0}
-      - CUDA_VERSION=${CUDA_VERSION-9.1}
+      - TF_VERSION_GIT_TAG=${TF_VERSION_GIT_TAG-v1.9.0}
+      - PYTHON_VERSION=${PYTHON_VERSION-3.5}
+      - USE_GPU=${USE_GPU-1}
+      - CUDA_VERSION=${CUDA_VERSION-9.2}
       - CUDNN_VERSION=${CUDNN_VERSION-7.1}
