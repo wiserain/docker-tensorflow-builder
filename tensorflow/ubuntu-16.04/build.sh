@@ -10,9 +10,9 @@ fi
 gcc --version
 
 # Install an appropriate Python environment
-conda create --yes -n tensorflow python==$PYTHON_VERSION
+conda create --yes -n tensorflow python=$PYTHON_VERSION
 source activate tensorflow
-conda install --yes numpy wheel bazel
+conda install --yes numpy wheel bazel enum34 mock
 
 # Compile TensorFlow
 
