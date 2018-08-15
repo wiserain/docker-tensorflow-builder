@@ -12,7 +12,10 @@ gcc --version
 # Install an appropriate Python environment
 conda create --yes -n tensorflow python=$PYTHON_VERSION
 source activate tensorflow
-conda install --yes numpy wheel bazel enum34 mock
+conda install --yes numpy wheel bazel mock
+if [ "${PYTHON_VERSION}" = "2.7" ]; then
+	conda install --yes enum34
+fi
 
 # Compile TensorFlow
 
